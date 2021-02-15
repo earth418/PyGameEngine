@@ -35,7 +35,7 @@ class Vec2:
     def __str__(self):
         return f'({self.X}, {self.Y})'
 
-    def dot(self, other : Vector2):
+    def dot(self, other):
         return self.X * other.X + self.Y * other.Y
     
     def sin(self):
@@ -48,7 +48,7 @@ class Vec2:
         return atan(self.Y / self.X)
     
 
-class Vector3:
+class Vec3:
 
     X : float
     Y : float

@@ -1,22 +1,14 @@
 import OpenGL
 import math, time
-import noise
+# import noise
 from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
+from Math.vector import Vec2, Vec3
+from Math.color import Color
+from Objects.mesh import Mesh
 
-class Point:
-    X : float
-    Y : float
-
-    def __init__(self, X, Y) -> None:
-        self.X = X
-        self.Y = Y
-
-    def __mul__(self, other):
-        return Point(self.X * other, self.Y * other)
-
-def triangle_from_points(p1 : Point, p2 : Point, p3 : Point):
+def triangle_from_points(p1 : Vec2, p2 : Vec2, p3 : Vec2):
 
     glBegin(GL_TRIANGLES)
 
@@ -26,7 +18,7 @@ def triangle_from_points(p1 : Point, p2 : Point, p3 : Point):
 
     glEnd()
 
-def square_from_points(p1 : Point, p2 : Point, p3 : Point, p4 : Point):
+def square_from_points(corner1 : Vec2, corner2 : Vec2):
     glBegin(GL_QUADS)
 
     glVertex2f(100, 100)
@@ -41,7 +33,8 @@ def showScreen():
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
     glLoadIdentity()
     iterate()
-    generate_plane()
+
+    # triangle_from_points()
 
     glutSwapBuffers()
 
